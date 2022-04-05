@@ -1,5 +1,6 @@
 package auth_lib;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -51,5 +52,19 @@ public class MockAuthenticatorTest
         authp.addParameter( ParamKey.Pwd, "pass1" );
 
         assertTrue( this._auth.auth( authp ) );
+    }
+
+    /**
+     * 認証失敗 テスト
+     */
+    @Test
+    public void auth_fail()
+    {
+        AuthParameters authp = new AuthParameters();
+
+        authp.addParameter( ParamKey.Uid, "taro" );
+        authp.addParameter( ParamKey.Pwd, "pass2" );
+
+        assertFalse( this._auth.auth( authp ) );
     }
 }
