@@ -26,8 +26,8 @@ public class ShopServiceTest
         this._shopService = new ShopService();
         
         // 認証処理の設定
-//        AuthenticatorImpl impl = new AuthenticatorImpl();
-        MockAuthenticator impl = new MockAuthenticator();
+        AuthenticatorImpl impl = new AuthenticatorImpl();
+//        MockAuthenticator impl = new MockAuthenticator();
 
         impl.register( "aaa", "p123" );
         
