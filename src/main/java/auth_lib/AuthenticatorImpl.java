@@ -18,23 +18,6 @@ public class AuthenticatorImpl implements Authenticator
     {
         this._userTable.put( uid, pwd );
     }
-
-    /**
-     * 認証処理
-     */
-    public boolean auth( String uid, String pwd )
-    {
-        if( null != pwd )
-        {
-            if(     this._userTable.containsKey( uid ) == true
-                &&  pwd.equals( this._userTable.get( uid ) ) == true
-                )
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     
     /**
      * 認証処理 - 認証パラメータ版
