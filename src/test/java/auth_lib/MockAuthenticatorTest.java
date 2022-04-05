@@ -3,6 +3,7 @@ package auth_lib;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import auth_lib.AuthParameters.ParamKey;
 
@@ -22,7 +23,7 @@ public class MockAuthenticatorTest
     @Before
     public void setUp()
     {
-        this._auth = new MockAuthenticatorTest();
+        this._auth = new MockAuthenticator();
 
         this._auth.register( "taro", "pass1" );
     }
@@ -30,6 +31,7 @@ public class MockAuthenticatorTest
     /**
      * 旧認証処理成功テスト
      */
+    @Test
     public void auth_success_old()
     {
         boolean result = this._auth.auth( "taro", "pass1" );
@@ -40,6 +42,7 @@ public class MockAuthenticatorTest
     /**
      * 認証成功 テスト
      */
+    @Test
     public void auth_success()
     {
         AuthParameters authp = new AuthParameters();
@@ -47,6 +50,6 @@ public class MockAuthenticatorTest
         authp.addParameter( ParamKey.Uid, "taro" );
         authp.addParameter( ParamKey.Pwd, "pass1" );
 
-        assertTrue( this._auth.auth( athup ) );
+        assertTrue( this._auth.auth( authp ) );
     }
 }
