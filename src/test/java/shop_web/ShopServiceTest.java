@@ -2,6 +2,8 @@ package shop_web;
 
 import static org.junit.Assert.*;
 import java.util.HashMap;
+
+import org.junit.Before;
 import org.junit.Test;
 import auth_lib.*;
 
@@ -10,13 +12,26 @@ import auth_lib.*;
  */
 public class ShopServiceTest
 {
+    private ShopService _shopService;
+
+    /**
+     * 認証前処理
+     */
+    @Before
+    public void setUp()
+    {
+        this._shopService = new ShopService();
+        
+        // 認証処理の設定
+        this._shopService.setAuth( new NotNullAuthenticator() );
+    }
+
     /**
      * ログイン成功 テスト
      */
     @Test
     public void login_success()
     {
-        ShopService service = new ShopService();
         HashMap< String, String > paramTable = new HashMap<>();
 
         // パラメータ設定
@@ -25,7 +40,7 @@ public class ShopServiceTest
         paramTable.put( "pwd", "p123" );
 
         // ログイン処理
-        boolean result = service.doLogin( paramTable );        
+        boolean result = this._shopService.doLogin( paramTable );        
         
         // 結果
         assertTrue( result );
