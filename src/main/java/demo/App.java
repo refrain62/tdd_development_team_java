@@ -1,4 +1,4 @@
-package auth_lib;
+package demo;
 
 /**
  * Hello world!

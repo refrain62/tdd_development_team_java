@@ -1,4 +1,4 @@
-package auth_lib;
+package demo;
 
 import static org.junit.Assert.assertTrue;
 
