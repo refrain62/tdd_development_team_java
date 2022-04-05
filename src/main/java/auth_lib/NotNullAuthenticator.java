@@ -10,6 +10,6 @@ public class NotNullAuthenticator implements Authenticator
      */
     public boolean auth( String uid, String pwd )
     {
-        return true;
+        return ( null != pwd );
     }
 }
