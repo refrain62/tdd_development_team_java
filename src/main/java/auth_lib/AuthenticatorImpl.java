@@ -36,4 +36,11 @@ public class AuthenticatorImpl implements Authenticator
         return false;
     }
     
+    /**
+     * 認証処理 - 認証パラメータ版
+     */
+    public boolean auth( AuthParameters authp )
+    {
+        return true;
+    }
 }
