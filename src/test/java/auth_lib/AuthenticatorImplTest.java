@@ -1,5 +1,6 @@
 package auth_lib;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -36,5 +37,16 @@ public class AuthenticatorImplTest
         boolean result = this._auth.auth( "taro", "pass1" );
 
         assertTrue( result );
+    }
+    
+    /**
+     * 認証失敗テスト
+     */
+    @Test
+    public void auth_fail()
+    {
+        boolean result = this._auth.auth( "taro", "pass2" );
+
+        assertFalse( result );
     }
 }
