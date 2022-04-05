@@ -34,9 +34,12 @@ public class AuthenticatorImplTest
     @Test
     public void auth_success()
     {
-        boolean result = this._auth.auth( "taro", "pass1" );
+        AuthParameters authp = new AuthParameters();
 
-        assertTrue( result );
+        authp.addParameter( AuthParameters.ParamKey.Uid, "taro" );
+        authp.addParameter( AuthParameters.ParamKey.Pwd, "pass1" );
+
+        assertTrue( this._auth.auth( authp ) );
     }
     
     /**
@@ -45,8 +48,11 @@ public class AuthenticatorImplTest
     @Test
     public void auth_fail()
     {
-        boolean result = this._auth.auth( "taro", "pass2" );
+        AuthParameters authp = new AuthParameters();
 
-        assertFalse( result );
+        authp.addParameter( AuthParameters.ParamKey.Uid, "taro" );
+        authp.addParameter( AuthParameters.ParamKey.Pwd, "pass2" );
+
+        assertFalse( this._auth.auth( authp ) );
     }
 }
