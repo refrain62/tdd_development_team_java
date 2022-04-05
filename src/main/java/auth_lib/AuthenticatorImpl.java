@@ -6,12 +6,21 @@ package auth_lib;
 public class AuthenticatorImpl implements Authenticator
 {
     /**
+     * 認証用登録
+     * @param uid ユーザーID
+     * @param pwd パスワード
+     */
+    public void register( String uid, String pwd )
+    {
+
+    }
+
+    /**
      * 認証処理
      */
-    @Override
     public boolean auth( String uid, String pwd )
     {
-        return false;
+        return true;
     }
     
 }
