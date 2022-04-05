@@ -47,5 +47,25 @@ public class ShopServiceTest
         
         // 結果
         assertTrue( result );
+    }
+    
+    /**
+     * ログイン失敗 テスト
+     */
+    @Test
+    public void login_fail()
+    {
+        HashMap< String, String > paramTable = new HashMap<>();
+
+        // パラメータ設定
+        paramTable.put( "action", "auth" );
+        paramTable.put( "uid", "aaa" );
+        paramTable.put( "pwd", null );
+
+        // ログイン処理
+        boolean result = this._shopService.doLogin( paramTable );        
+        
+        // 結果
+        assertFalse( result );
     }    
 }
