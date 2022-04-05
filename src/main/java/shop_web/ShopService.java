@@ -33,6 +33,9 @@ public class ShopService
             return false;
         }
 
-        return this._authenticator.auth( null, null );
+        String uid = paramTable.get("uid");
+        String pwd = paramTable.get("pwd");
+
+        return this._authenticator.auth( uid, pwd );
     }
 }
