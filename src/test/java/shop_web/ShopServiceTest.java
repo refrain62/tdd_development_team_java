@@ -12,6 +12,9 @@ import auth_lib.*;
  */
 public class ShopServiceTest
 {
+    /**
+     * WEBショップサービス
+     */
     private ShopService _shopService;
 
     /**
