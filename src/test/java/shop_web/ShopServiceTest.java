@@ -26,7 +26,10 @@ public class ShopServiceTest
         this._shopService = new ShopService();
         
         // 認証処理の設定
-        this._shopService.setAuth( new NotNullAuthenticator() );
+        AuthenticatorImpl impl = new AuthenticatorImpl();
+        impl.register( "aaa", "p123" );
+        
+        this._shopService.setAuth( impl );
     }
 
     /**
