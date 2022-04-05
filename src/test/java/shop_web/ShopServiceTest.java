@@ -16,7 +16,7 @@ public class ShopServiceTest
     @Test
     public void login_success()
     {
-        Shopservice service = new ShopService();
+        ShopService service = new ShopService();
         HashMap< String, String > paramTable = new HashMap<>();
 
         // パラメータ設定
