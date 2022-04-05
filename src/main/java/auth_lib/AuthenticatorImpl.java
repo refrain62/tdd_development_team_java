@@ -41,6 +41,19 @@ public class AuthenticatorImpl implements Authenticator
      */
     public boolean auth( AuthParameters authp )
     {
-        return true;
+        String uid = authp.getParameter( AuthParameters.ParamKey.Uid );
+        String pwd = authp.getParameter( AuthParameters.ParamKey.Pwd );
+        
+        if( null != pwd )
+        {
+            if(     this._userTable.containsKey( uid ) == true
+                &&  pwd == this._userTable.get( uid ) == true
+            )
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
