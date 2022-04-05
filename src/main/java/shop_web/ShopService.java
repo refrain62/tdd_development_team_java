@@ -2,7 +2,9 @@ package shop_web;
 
 import java.util.HashMap;
 
+import auth_lib.AuthParameters;
 import auth_lib.Authenticator;
+import auth_lib.AuthParameters.ParamKey;
 
 /**
  * WEBショップサービス
@@ -36,6 +38,12 @@ public class ShopService
         String uid = paramTable.get("uid");
         String pwd = paramTable.get("pwd");
 
-        return this._authenticator.auth( uid, pwd );
+        // 認証方式をID/PASSから パラメータ認証に変更
+        AuthParameters authp = new AuthParameters();
+
+        authp.addParameter( ParamKey.Uid, uid );
+        authp.addParameter( ParamKey.Pwd, pwd );
+
+        return this._authenticator.auth( authp );
     }
 }
